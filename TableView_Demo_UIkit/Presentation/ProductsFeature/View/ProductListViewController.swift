@@ -75,13 +75,6 @@ class ProductListViewController: UIViewController {
     private func setTableViewRowHeight() {
         tableView.rowHeight = 100 //TODO: It should be dynamic
     }
-    
-    /*
-    private func downloadProductImage(_ url: String) async throws -> UIImage? {
-        guard let data = try await viewModel.getProductImage(url) else { return nil }
-        return UIImage(data: data)
-    }
-    */
 }
 
 
@@ -110,7 +103,7 @@ extension ProductListViewController: UITableViewDataSource {
                 
                 do {
                     // Download the product image
-                    let productImage = try await ImageCache.shared.image(for: imageUrl) //downloadProductImage(imageUrl)
+                    let productImage = try await ImageCache.shared.image(for: imageUrl)
                     
                     //Check if the task is already cancelled then no need to update the UI
                     try Task.checkCancellation()

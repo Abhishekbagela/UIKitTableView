@@ -14,10 +14,8 @@ final class ProductListViewModel {
     var productList: [Product] = []
     
     private let productListUseCase: FetchAllProductUseCase
-    private let imageLoader: ImageLoaderProtocol
-    init(productListUseCase: FetchAllProductUseCase, imageLoader: ImageLoaderProtocol) {
+    init(productListUseCase: FetchAllProductUseCase) {
         self.productListUseCase = productListUseCase
-        self.imageLoader = imageLoader
     }
     
     func fetchAllProducts() async throws {
@@ -28,13 +26,5 @@ final class ProductListViewModel {
         productList.forEach { p in
             print("xcxcxc image\(p.images.first)")
         }
-    }
-    
-    func getProductImage(_ url: String) async throws -> Data? {
-        guard let url = URL(string: url) else {
-            print("\(#function) url nil")
-            return nil
-        }
-        return try await imageLoader.loadImage(url)
     }
 }

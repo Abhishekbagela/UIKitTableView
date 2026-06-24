@@ -25,12 +25,8 @@ final class DependencyContainer {
         FetchAllProductUseCase(repository: productRepository)
     }()
     
-    lazy var imageLoader: ImageLoaderProtocol = {
-        ImageLoader(networkManager: networkManager)
-    }()
-    
     func makeProductListViewModel() -> ProductListViewModel {
-        ProductListViewModel(productListUseCase: productListUseCase, imageLoader: imageLoader)
+        ProductListViewModel(productListUseCase: productListUseCase)
     }
 }
 
