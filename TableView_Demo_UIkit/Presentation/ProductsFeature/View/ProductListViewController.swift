@@ -76,11 +76,12 @@ class ProductListViewController: UIViewController {
         tableView.rowHeight = 100 //TODO: It should be dynamic
     }
     
+    /*
     private func downloadProductImage(_ url: String) async throws -> UIImage? {
         guard let data = try await viewModel.getProductImage(url) else { return nil }
         return UIImage(data: data)
     }
-    
+    */
 }
 
 
